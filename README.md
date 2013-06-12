@@ -21,7 +21,7 @@ Example select styles
 
     .select-mask {
         display: inline-block;
-        border-bottom: 2px $black solid;
+        border-bottom: 2px #000 solid;
         width: 230px;
     }
     .select-mask select {
