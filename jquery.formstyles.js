@@ -114,7 +114,7 @@
                 }
             };
             set_val();
-            input.on('change click', set_val);
+            input.on('change', set_val);
         });
 
         return this;
