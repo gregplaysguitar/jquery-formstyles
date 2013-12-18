@@ -92,14 +92,13 @@
     });
 
     $.fn.checkboxstyles = (function(options) {
-        var options = $.extend({
-                classname: 'checkbox-mask',
-            }, options);
-
         this.each(function() {
             var input = $(this),
-
+                options = $.extend({
+                    classname: input.attr('type') + '-mask',
+                }, options),
                 mask = createmask(input, options.classname);
+                   
             input.css(COMMON_CSS).css({
                 width: mask.outerWidth(),
                 height: mask.outerHeight()
