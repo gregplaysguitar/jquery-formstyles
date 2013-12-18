@@ -114,6 +114,11 @@
             };
             set_val();
             input.on('change', set_val);
+            if (input.attr('type') === 'radio') {
+                // for radio inputs, we need to change state on change for any
+                // of the related inputs
+                $('input[name="' + input.attr('name') + '"]').on('change', set_val);
+            }
         });
 
         return this;
