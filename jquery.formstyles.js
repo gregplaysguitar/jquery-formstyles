@@ -37,12 +37,14 @@
     };
 
 
-    function createmask(el) {
-        var mask = $('<div>');
-        mask.css({
-            position: 'relative'
-        });
+    function createmask(el, classname) {
+        var mask = $('<div>').addClass(classname);
         mask.insertBefore(el).append(el);
+        if (mask.css('position') === 'static') {
+            mask.css({
+                position: 'relative'
+            });
+        }
         handle_focus(el, mask);
         return mask;
     };
@@ -66,7 +68,7 @@
 
         this.each(function() {
             var select = $(this),
-                mask = createmask(select).addClass(options.classname),
+                mask = createmask(select, options.classname),
                 label = $('<span>');
 
             mask.css('minWidth', select.width());
@@ -96,8 +98,8 @@
 
         this.each(function() {
             var input = $(this),
-                mask = createmask(input).addClass(options.classname);
 
+                mask = createmask(input, options.classname);
             input.css(COMMON_CSS).css({
                 width: mask.outerWidth(),
                 height: mask.outerHeight()
@@ -132,7 +134,7 @@
 
         this.each(function() {
             var input = $(this),
-                mask = createmask(input).addClass(options.classname);
+                mask = createmask(input, options.classname);
 
             input.css(COMMON_CSS);
             mask.append(input.val());
