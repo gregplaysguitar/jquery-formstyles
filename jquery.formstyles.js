@@ -141,5 +141,24 @@
     });
 
 
+    $.fn.fileinputstyles = (function(options) {
+        var options = $.extend({
+                classname: 'fileinput-mask',
+            }, options);
+    
+        this.each(function() {
+            var input = $(this),
+                mask = createmask(input, options.classname),
+                text = input.attr('title') || 'Upload file';
+            
+            mask.append($('<span>').text(text));
+            input.css(COMMON_CSS);
+            mask.append(input.val());
+        });
+    
+        return this;
+    });
+
+
 })(jQuery);
 
