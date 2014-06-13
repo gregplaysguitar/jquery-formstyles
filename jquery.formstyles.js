@@ -149,11 +149,20 @@
         this.each(function() {
             var input = $(this),
                 mask = createmask(input, options.classname),
-                text = input.attr('title') || 'Upload file';
+                title = input.attr('title') || 'Upload file',
+                text = $('<span>');
             
-            mask.append($('<span>').text(text));
+            function set_val() {
+                var val = input.val();
+                text.text(title + (val ? ': ' + val : ''));
+            };
+            
+            mask.append(text);
+            set_val();
             input.css(COMMON_CSS);
             mask.append(input.val());
+            
+            input.on('change', set_val);
         });
     
         return this;
