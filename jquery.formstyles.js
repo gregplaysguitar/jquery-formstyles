@@ -124,13 +124,6 @@
         return this;
     });
 
-    BUTTON_CSS = {
-        position: 'absolute',
-        top: 0,
-        left: '0',
-        opacity: 0.01
-    };
-
     $.fn.buttonstyles = (function(options) {
         var options = $.extend({
                 classname: 'button-mask',
