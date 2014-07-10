@@ -85,8 +85,8 @@
             select.on('change', set_val);
 
             // needed to set the width in ie 
-            select[0].style.width = mask.outerWidth() + 'px';
-            select[0].style.height = mask.outerHeight() + 'px';
+            select[0].style.minWidth = mask.outerWidth() + 'px';
+            select[0].style.minHeight = mask.outerHeight() + 'px';
         });
 
         return this;
