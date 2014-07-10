@@ -124,13 +124,6 @@
         return this;
     });
 
-    BUTTON_CSS = {
-        position: 'absolute',
-        top: 0,
-        left: '0',
-        opacity: 0.01
-    };
-
     $.fn.buttonstyles = (function(options) {
         var options = $.extend({
                 classname: 'button-mask',
@@ -144,6 +137,34 @@
             mask.append(input.val());
         });
 
+        return this;
+    });
+
+
+    $.fn.fileinputstyles = (function(options) {
+        var options = $.extend({
+                classname: 'fileinput-mask',
+            }, options);
+    
+        this.each(function() {
+            var input = $(this),
+                mask = createmask(input, options.classname),
+                title = input.attr('title') || 'Upload file',
+                text = $('<span>');
+            
+            function set_val() {
+                var val = input.val();
+                text.text(title + (val ? ': ' + val : ''));
+            };
+            
+            mask.append(text);
+            set_val();
+            input.css(COMMON_CSS);
+            mask.append(input.val());
+            
+            input.on('change', set_val);
+        });
+    
         return this;
     });
 
