@@ -33,6 +33,7 @@
         width: '100%',
         opacity: 0.01,
         background: 'none',
+        zIndex: 1
         border: 'none'
     };
 
