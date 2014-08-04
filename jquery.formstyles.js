@@ -1,6 +1,8 @@
 (function($) {
-
     /*
+    
+    See https://github.com/gregplaysguitar/jquery-formstyles
+    License: https://github.com/gregplaysguitar/jquery-formstyles/blob/master/LICENSE.md
 
     Example use:
 
