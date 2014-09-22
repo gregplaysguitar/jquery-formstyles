@@ -156,7 +156,8 @@
                 text = $('<span>');
             
             function set_val() {
-                var val = input.val();
+                var bits = input.val().split(/\/|\\/),
+                    val = bits[bits.length - 1];
                 text.text(title + (val ? ': ' + val : ''));
             };
             
