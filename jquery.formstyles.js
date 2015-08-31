@@ -85,6 +85,7 @@
             };
             set_val();
             select.on('change', set_val);
+            select.data('set_val', set_val);
 
             // needed to set the width in ie
             // select[0].style.minWidth = mask.outerWidth() + 'px';
@@ -117,6 +118,7 @@
             };
             set_val();
             input.on('change', set_val);
+            input.data('set_val', set_val);
             if (input.attr('type') === 'radio') {
                 // for radio inputs, we need to change state on change for any
                 // of the related inputs
