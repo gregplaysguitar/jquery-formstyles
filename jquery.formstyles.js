@@ -1,6 +1,6 @@
 (function($) {
     /*
-    
+
     See https://github.com/gregplaysguitar/jquery-formstyles
     License: https://github.com/gregplaysguitar/jquery-formstyles/blob/master/LICENSE.md
 
@@ -12,7 +12,7 @@
 
     TODO:
 
-    ✔ Wrap selects in a mask 
+    ✔ Wrap selects in a mask
     ✔ Wrap checkbox/radio
     ✔ Wrap submit buttons
     ✔ select to 0.01 opacity and fill mask
@@ -101,7 +101,7 @@
                     classname: input.attr('type') + '-mask',
                 }, options),
                 mask = createmask(input, options.classname);
-                   
+
             input.css(COMMON_CSS).css({
                 width: mask.outerWidth(),
                 height: mask.outerHeight()
@@ -148,30 +148,29 @@
         var options = $.extend({
                 classname: 'fileinput-mask',
             }, options);
-    
+
         this.each(function() {
             var input = $(this),
                 mask = createmask(input, options.classname),
-                title = input.attr('title') || 'Upload file',
+                title = input.attr('title') || 'Choose file',
                 text = $('<span>');
-            
+
             function set_val() {
                 var bits = input.val().split(/\/|\\/),
                     val = bits[bits.length - 1];
                 text.text(title + (val ? ': ' + val : ''));
             };
-            
+
             mask.append(text);
             set_val();
             input.css(COMMON_CSS);
             mask.append(input.val());
-            
+
             input.on('change', set_val);
         });
-    
+
         return this;
     });
 
 
 })(jQuery);
-
