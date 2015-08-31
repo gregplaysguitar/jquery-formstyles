@@ -74,7 +74,7 @@
                 mask = createmask(select, options.classname),
                 label = $('<span>');
 
-            mask.css('minWidth', select.width());
+            // mask.css('minWidth', select.width());
             mask.append(label);
 
             select.css(COMMON_CSS);
@@ -86,9 +86,9 @@
             set_val();
             select.on('change', set_val);
 
-            // needed to set the width in ie 
-            select[0].style.minWidth = mask.outerWidth() + 'px';
-            select[0].style.minHeight = mask.outerHeight() + 'px';
+            // needed to set the width in ie
+            // select[0].style.minWidth = mask.outerWidth() + 'px';
+            // select[0].style.minHeight = mask.outerHeight() + 'px';
         });
 
         return this;
